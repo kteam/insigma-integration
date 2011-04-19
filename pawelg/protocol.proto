@@ -1,0 +1,43 @@
+package insigma_communication;
+
+message Blur {
+    optional int32 intensity = 1;
+    optional float reconstruction_quality = 2;
+    optional float watermark_strength = 3;
+    
+    message Region {
+        optional int32 x = 1;
+        optional int32 y = 2;
+        optional int32 width = 3;
+        optional int32 height = 4;
+    }
+
+    repeated Region regions = 4;
+
+}
+
+message Detect {
+    enum Cascade {
+        FRONT = 0;
+        SIDE = 1;
+        EYES = 2;
+    }
+    repeated Cascade cascades = 1;
+}
+
+message Recognize {
+    message Region {
+        optional int32 a = 1;
+        optional int32 b = 2;
+        optional int32 c = 3;
+        optional int32 d = 4;
+    }
+    repeated Region regions = 1;
+}
+
+message Task {
+    optional Detect detect = 1;
+    optional Recognize recognize = 2;
+    optional Blur blur = 3;
+}
+
