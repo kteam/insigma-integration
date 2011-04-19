@@ -26,10 +26,10 @@ class TestCommunication(unittest.TestCase):
         self.assertEqual(blur_message.regions[0].x, 12345678)
 
         region = Blur.Region()
-        #region.x = 10
-        #region.y = 11
-        #region.width = 12
-        #region.height = 13
+        region.x = 10
+        region.y = 11
+        region.width = 12
+        region.height = 13
 
         blur_message.regions.extend([region])
         print blur_message.ListFields()
